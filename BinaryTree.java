@@ -17,6 +17,10 @@ public class BinaryTree<T> implements BinaryTreeInterface<T> {
                 (BinaryTree<T>) rightTree
         );
     }
+    public void setRoot(BinaryNode<T> newRoot) {
+        this.root = newRoot;
+        System.out.println("set new root "+newRoot.getData().toString());
+    }
 
     public BinaryNode<T> getRoot() {
         return root;

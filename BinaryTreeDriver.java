@@ -15,10 +15,10 @@ public class BinaryTreeDriver {
             numList[i] = Integer.parseInt(inputtedNums[i]);
         }
         //create tree
-        BinarySearchTree<Integer> tree = new BinarySearchTree<Integer>(numList[0]);
+        RedBlackTree<Integer> tree = new RedBlackTree<Integer>(numList[0]);
 
         for (int i : numList) {
-            tree.add(i);
+            tree.addNode(i);
         }
 
         System.out.print("Pre-order: ");
@@ -37,9 +37,9 @@ public class BinaryTreeDriver {
             System.out.print("Command? ");
             String command = kb.next().toUpperCase();
             if (command.equals("I")) {
-                Integer result = tree.add(kb.nextInt());
-                if(result != null ) {
-                    System.out.println(result + " already exists, ignore");
+                boolean success = tree.addNode(kb.nextInt());
+                if(!success ) {
+                    System.out.println("value already exists, ignore");
                 }else{
                     System.out.print("In-order: ");
                     tree.inorderTraverse();
